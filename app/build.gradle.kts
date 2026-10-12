@@ -7,7 +7,7 @@ plugins {
 android {
     namespace = "com.example.guiadoestudo"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId = "com.example.guiadoestudo"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -80,4 +80,7 @@ dependencies {
 
     // ViewModel integration with Navigation3
     implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha04")
+
+    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.navigation:navigation-compose:2.9.7")
 }

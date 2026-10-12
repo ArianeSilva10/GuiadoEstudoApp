@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.guiadoestudo.data.local.DatabaseProvider
 import com.example.guiadoestudo.data.repository.SubjectRepository
+import com.example.guiadoestudo.ui.StudyTrackApp
 import com.example.guiadoestudo.ui.theme.GuiaDoEstudoTheme
 import com.example.guiadoestudo.ui.viewmodel.SubjectViewModel
 import com.example.guiadoestudo.ui.viewmodel.SubjectViewModelFactory
