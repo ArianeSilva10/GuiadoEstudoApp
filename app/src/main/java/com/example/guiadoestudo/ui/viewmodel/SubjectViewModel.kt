@@ -13,6 +13,10 @@ class SubjectViewModel(private val repository: SubjectRepository) : ViewModel() 
 
     val subjects: StateFlow<List<Subject>> = _subjects
 
+    init {
+        loadSubjects()
+    }
+
     fun loadSubjects(){
         viewModelScope.launch {
             _subjects.value = repository.getAllSubjects()

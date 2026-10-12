@@ -21,9 +21,14 @@ fun StudyTrackApp(
     ){
         composable("home") {
             HomeScreen(
+                viewModel = viewModel,
                 onAddSubjectClick = {
                     navController.navigate("add_subject")
-                })
+                },
+                onSubjectClick = { subjectId ->
+
+                }
+            )
         }
 
         composable("add_subject") {
