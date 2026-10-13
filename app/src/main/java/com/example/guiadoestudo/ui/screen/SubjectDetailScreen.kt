@@ -16,7 +16,8 @@ import com.example.guiadoestudo.data.local.Subject
 @Composable
 fun SubjectDetailScreen(
     subject: Subject,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onDeleteClick: () -> Unit
 ){
     Column(
         modifier = Modifier
@@ -37,6 +38,10 @@ fun SubjectDetailScreen(
 
         Button(onBackClick) {
             Text("Voltar")
+        }
+
+        Button(onDeleteClick) {
+            Text("Excluir disciplina")
         }
     }
 }

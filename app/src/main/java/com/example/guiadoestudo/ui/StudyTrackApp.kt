@@ -62,6 +62,10 @@ fun StudyTrackApp(
                     subject = subject,
                     onBackClick = {
                         navController.popBackStack()
+                    },
+                    onDeleteClick = {
+                        viewModel.deleteSubject(subject)
+                        navController.popBackStack()
                     }
                 )
             } else {
