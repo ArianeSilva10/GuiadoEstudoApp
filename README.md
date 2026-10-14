@@ -41,7 +41,7 @@ O projeto utiliza uma organização inspirada no padrão MVVM, separando a inter
 
 ## Objetivo acadêmico
 
-O StudyTrack foi desenvolvido como projeto acadêmico para praticar desenvolvimento Android com Kotlin, construção de interfaces declarativas, navegação entre telas, persistência de dados e organização de código para prática do módulo intermediário de Capacita IREDE.
+O Guia do Estudo foi desenvolvido como projeto acadêmico para praticar desenvolvimento Android com Kotlin, construção de interfaces declarativas, navegação entre telas, persistência de dados e organização de código para prática do módulo intermediário de Capacita IREDE.
 
 ## Autoria
 
