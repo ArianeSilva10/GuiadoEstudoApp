@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.guiadoestudo.ui.screen.AddSubjectScreen
+import com.example.guiadoestudo.ui.screen.EditSubjectScreen
 import com.example.guiadoestudo.ui.screen.HomeScreen
 import com.example.guiadoestudo.ui.screen.SubjectDetailScreen
 import com.example.guiadoestudo.ui.viewmodel.SubjectViewModel
@@ -66,10 +67,45 @@ fun StudyTrackApp(
                     onDeleteClick = {
                         viewModel.deleteSubject(subject)
                         navController.popBackStack()
+                    },
+                    onEditClick = {
+                        navController.navigate("edit_subject/${subject.id}")
                     }
                 )
             } else {
                 Text("Disciplina não encontrada.")
+            }
+        }
+
+        composable("edit_subject/{subjectId}") { backStackEntry ->
+            val subjectId = backStackEntry.arguments
+                ?.getString("subjectId")
+                ?.toIntOrNull()
+
+            val subjects by viewModel.subjects.collectAsState()
+
+            val subject = subjects.firstOrNull{
+                it.id == subjectId
+            }
+
+            if(subject != null){
+                EditSubjectScreen(
+                    subject = subject,
+                    onSaveClick = { name, description ->
+                        viewModel.updateSubject(
+                            subject.copy(
+                                name = name,
+                                description = description
+                            )
+                        )
+                        navController.popBackStack("home", false)
+                    },
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
+                )
+            } else {
+                Text("Disciplina não encontrada")
             }
         }
     }

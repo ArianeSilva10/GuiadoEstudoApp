@@ -17,6 +17,7 @@ import com.example.guiadoestudo.data.local.Subject
 fun SubjectDetailScreen(
     subject: Subject,
     onBackClick: () -> Unit,
+    onEditClick: () -> Unit,
     onDeleteClick: () -> Unit
 ){
     Column(
@@ -38,6 +39,10 @@ fun SubjectDetailScreen(
 
         Button(onBackClick) {
             Text("Voltar")
+        }
+
+        Button(onClick = onEditClick) {
+            Text("Editar disciplina")
         }
 
         Button(onDeleteClick) {

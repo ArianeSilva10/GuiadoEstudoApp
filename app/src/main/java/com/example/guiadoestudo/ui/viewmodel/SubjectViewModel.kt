@@ -41,4 +41,11 @@ class SubjectViewModel(private val repository: SubjectRepository) : ViewModel() 
             loadSubjects()
         }
     }
+
+    fun updateSubject(subject: Subject){
+        viewModelScope.launch {
+            repository.updateSubject(subject)
+            loadSubjects()
+        }
+    }
 }
