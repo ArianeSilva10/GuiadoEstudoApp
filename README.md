@@ -1,4 +1,4 @@
-# StudyTrack 📚
+# Guia do Estudo 📚
 
 Aplicativo Android desenvolvido em Kotlin com Jetpack Compose para auxiliar estudantes a organizar suas disciplinas.
 
