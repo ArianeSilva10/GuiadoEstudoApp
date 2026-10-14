@@ -40,6 +40,11 @@ fun HomeScreen(
             style = MaterialTheme.typography.headlineMedium
         )
 
+        Text(
+            text = "Disciplinas cadastradas: ${subjects.size}",
+            style = MaterialTheme.typography.bodyLarge
+        )
+
         Button(
             onClick = onAddSubjectClick,
             modifier = Modifier
