@@ -32,6 +32,10 @@ fun EditSubjectScreen(
         mutableStateOf(subject.description)
     }
 
+    var showNameError by remember(subject.id){
+        mutableStateOf(false)
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,11 +47,19 @@ fun EditSubjectScreen(
 
         OutlinedTextField(
             value = name,
-            onValueChange = { name = it },
+            onValueChange = {
+                name = it
+                showNameError = false
+                            },
             label = { "Nome da disciplina"},
             modifier = Modifier.fillMaxWidth(),
-            singleLine = true
+            singleLine = true,
+            isError = showNameError
         )
+
+        if (showNameError){
+            Text("O nome da disciplina é obrigatório.")
+        }
 
         OutlinedTextField(
             value = description,
@@ -60,6 +72,8 @@ fun EditSubjectScreen(
             onClick = {
                 if (name.isNotBlank()){
                     onSaveClick(name.trim(), description.trim())
+                }else{
+                    showNameError = true
                 }
             },
             modifier = Modifier.fillMaxWidth()

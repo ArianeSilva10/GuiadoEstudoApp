@@ -51,7 +51,7 @@ fun HomeScreen(
                 .fillMaxWidth()
                 .padding(vertical = 12.dp)
         ) {
-            Text("Adicionar disciplina")
+            Text("+ Adicionar disciplina")
         }
 
         if (subjects.isEmpty()){
@@ -66,7 +66,9 @@ fun HomeScreen(
                             .fillMaxWidth()
                             .clickable{
                                 onSubjectClick(subject.id)
-                            }
+                            },
+                        elevation = androidx.compose.material3.CardDefaults
+                            .cardElevation(defaultElevation = 4.dp)
                     ) {
                         Column(
                             modifier = Modifier.padding(16.dp)

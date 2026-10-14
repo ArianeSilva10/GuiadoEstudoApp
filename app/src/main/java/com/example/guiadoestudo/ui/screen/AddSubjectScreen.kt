@@ -24,6 +24,7 @@ fun AddSubjectScreen(
 ){
     var name by remember { mutableStateOf("") }
     var description by remember {mutableStateOf("") }
+    var showNameError by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -36,11 +37,19 @@ fun AddSubjectScreen(
 
         OutlinedTextField(
             value = name,
-            onValueChange = { name = it },
+            onValueChange = {
+                name = it
+                showNameError = false
+                            },
             label = { Text("Nome da disciplina") },
             modifier = Modifier.fillMaxWidth(),
-            singleLine = true
+            singleLine = true,
+            isError = showNameError
         )
+
+        if (showNameError){
+            Text("O nome da disciplina é obrigatório.")
+        }
 
         OutlinedTextField(
             value = description,
@@ -53,6 +62,8 @@ fun AddSubjectScreen(
             onClick = {
                 if(name.isNotBlank()){
                     onSaveClick(name.trim(), description.trim())
+                }else {
+                    showNameError = true
                 }
             },
             modifier = Modifier.fillMaxWidth()
